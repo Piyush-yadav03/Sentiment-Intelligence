@@ -1,0 +1,15 @@
+[theme]
+# Dark navy background with cyan/violet accents
+primaryColor = "#65e6c4"
+backgroundColor = "#0a1020"
+secondaryBackgroundColor = "#1a2d50"
+textColor = "#f4f7ff"
+font = "sans serif"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false
