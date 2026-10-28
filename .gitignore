@@ -73,6 +73,13 @@ transformers_cache/
 *~
 .DS_Store
 
+# AI Agent Development Folders
+.agents/
+.claude/
+
+# Old Pages Backup
+_pages_backup/
+
 # Pytest
 .pytest_cache/
 .coverage

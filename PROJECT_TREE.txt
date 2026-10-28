@@ -1,0 +1,118 @@
+SentiMind AI - Project Structure
+================================================================================
+
+sentimentlab_ai/
+│
+├── sentimind.py                    # Main Streamlit application (943 lines)
+│
+├── Configuration Files
+│   ├── .gitignore                  # Git exclusions
+│   ├── .python-version             # Python 3.11 for Streamlit Cloud
+│   ├── runtime.txt                 # Backup Python specification
+│   ├── packages.txt                # System packages (empty)
+│   ├── requirements.txt            # Python dependencies
+│   ├── run_app.ps1                 # Windows launcher script
+│   └── LICENSE                     # MIT License
+│
+├── Documentation
+│   ├── README.md                   # Main project documentation (26.7 KB)
+│   │
+│   ├── docs/
+│   │   ├── SETUP.md                # Setup instructions
+│   │   ├── CONTRIBUTING.md         # Contribution guidelines  
+│   │   ├── DEPLOYMENT_GUIDE.md     # Deployment guide (consolidated)
+│   │   └── PROJECT_REPORT.md       # Academic project report (55 KB)
+│   │
+│   └── report/                     # Academic report materials
+│       ├── experiment_log.md       # Experiment documentation
+│       ├── methodology.md          # Methodology details
+│       └── report_template.md      # Report template
+│
+├── Source Code
+│   └── src/
+│       ├── __init__.py             # Package initialization
+│       ├── model.py                # TinyTransformerStudent definition
+│       ├── train.py                # Training pipeline
+│       ├── distillation.py         # Knowledge distillation loss
+│       ├── inference.py            # Prediction pipeline
+│       ├── evaluate.py             # Evaluation metrics
+│       ├── data.py                 # Data loading utilities
+│       ├── tokenizer.py            # Tokenization utilities
+│       ├── metrics.py              # Metrics tracking
+│       ├── config.py               # Configuration management
+│       └── utils.py                # General utilities
+│
+├── Trained Models & Results
+│   └── results/
+│       ├── student_baseline.pt     # Baseline model (62.6% accuracy, 30 MB)
+│       ├── student_distilled.pt    # Distilled model (63.6% accuracy, 30 MB)
+│       ├── teacher_logits.pt       # Cached teacher outputs
+│       ├── metrics.json            # Training metrics
+│       └── tokenizer/              # Tokenizer files
+│           ├── special_tokens_map.json
+│           ├── tokenizer.json
+│           ├── tokenizer_config.json
+│           └── vocab.txt
+│
+├── Test Suite
+│   └── tests/
+│       ├── __init__.py             # Test package initialization
+│       ├── conftest.py             # Pytest configuration
+│       ├── test_model.py           # Model tests (9 tests)
+│       ├── test_distillation.py    # Distillation tests (12 tests)
+│       ├── test_inference.py       # Inference tests (9 tests)
+│       └── test_metrics.py         # Metrics tests (17 tests)
+│       
+│       Total: 47 tests (100% passing)
+│
+├── Training & Utility Scripts
+│   └── scripts/
+│       ├── train_baseline.py       # Baseline student training
+│       ├── train_distilled.py      # Distilled student training
+│       ├── run_evaluation.py       # Model evaluation script
+│       ├── train_improved.ps1      # PowerShell: Improved training
+│       ├── train_best_accuracy.ps1 # PowerShell: Best accuracy config
+│       └── train_advanced.ps1      # PowerShell: Advanced options
+│
+├── Streamlit Configuration
+│   └── .streamlit/
+│       ├── config.toml             # UI theme settings
+│       └── secrets.toml            # Secrets (git-ignored)
+│
+├── Development Environment
+│   ├── .venv/                      # Virtual environment (git-ignored)
+│   └── .git/                       # Git repository
+│
+└── Generated Files (git-ignored)
+    ├── __pycache__/                # Python cache
+    └── .pytest_cache/              # Pytest cache
+
+================================================================================
+
+Project Statistics:
+-------------------
+- Main Application: 943 lines (sentimind.py)
+- Source Modules: 10 files in src/
+- Test Suite: 47 tests across 4 files
+- Documentation: 4 markdown files (82+ KB)
+- Trained Models: 2 models (60+ MB)
+- Scripts: 6 training/utility scripts
+
+Technology Stack:
+-----------------
+- Language: Python 3.11+
+- Framework: Streamlit
+- ML Libraries: PyTorch, Transformers, scikit-learn
+- Dataset: IMDb Reviews
+- Teacher Model: DistilBERT (67M parameters)
+- Student Model: Custom Transformer (500K parameters)
+
+Quality Assurance:
+------------------
+✓ 47 automated tests (100% passing)
+✓ Code organized in modular structure
+✓ Comprehensive documentation
+✓ Git version control
+✓ Deployed to Streamlit Cloud
+
+================================================================================
