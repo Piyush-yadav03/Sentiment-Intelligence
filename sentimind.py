@@ -402,23 +402,13 @@ def load_teacher():
 def load_student():
     """Load pre-trained student model and tokenizer from results directory"""
     path=OUT/"student_distilled.pt"; td=OUT/"tokenizer"
-    
-    # Debug: Check if files exist
-    print(f"[DEBUG] Looking for model at: {path}")
-    print(f"[DEBUG] Looking for tokenizer at: {td}")
-    print(f"[DEBUG] Model exists: {path.exists()}")
-    print(f"[DEBUG] Tokenizer exists: {td.exists()}")
-    
-    if not path.exists() or not td.exists(): 
-        print(f"[DEBUG] Model loading failed - missing files")
-        return None,None,None
+    if not path.exists() or not td.exists(): return None,None,None
     tok=AutoTokenizer.from_pretrained(td)
     meta=json.loads((OUT/"metrics.json").read_text()) if (OUT/"metrics.json").exists() else {}
     max_len=int(meta.get("max_length",96))
     model=TinyTransformerStudent(len(tok),tok.pad_token_id or 0,max_length=max_len)
     model.load_state_dict(torch.load(path,map_location="cpu")["state_dict"])
     model.eval()
-    print(f"[DEBUG] Student model loaded successfully!")
     return tok,model,max_len
 
 def teacher_predict(text):
