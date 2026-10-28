@@ -30,23 +30,24 @@ ENV/
 env/
 .virtualenv/
 
-# PyTorch models and checkpoints
-*.pt
+# PyTorch models and checkpoints (but keep our trained models)
 *.pth
 *.bin
 *.ckpt
 *.safetensors
 
-# Trained models and artifacts
-results/
+# Keep trained models for deployment
+!results/student_baseline.pt
+!results/student_distilled.pt
+!results/teacher_logits.pt
+!results/metrics.json
+
+# But ignore temporary training artifacts
+results/logs/
+results/plots/
 artifacts/
 checkpoints/
 models/
-teacher_logits.pt
-
-# But keep directory structure in git
-!results/.gitkeep
-!artifacts/.gitkeep
 
 # Dataset caches
 .cache/

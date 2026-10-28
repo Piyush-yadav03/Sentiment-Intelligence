@@ -1,0 +1,31 @@
+{
+  "teacher_model": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+  "dataset": "IMDb",
+  "device": "CPU",
+  "seed": 42,
+  "train_examples": 800,
+  "test_examples": 300,
+  "epochs": 3,
+  "batch_size": 8,
+  "max_length": 96,
+  "temperature": 2.0,
+  "alpha_hard_loss": 0.5,
+  "teacher_logits_generation_seconds": 27.062575299991295,
+  "baseline_student": {
+    "accuracy": 0.64,
+    "macro_f1": 0.6320857558139534,
+    "latency_ms_per_sample": 0.8860525005729869,
+    "checkpoint_mb": 15.973523139953613
+  },
+  "distilled_student": {
+    "accuracy": 0.61,
+    "macro_f1": 0.6025770219318607,
+    "latency_ms_per_sample": 0.7970625003508758,
+    "checkpoint_mb": 15.973557472229004
+  },
+  "limitations": [
+    "Teacher is fine-tuned on SST-2 but evaluated on IMDb (domain shift).",
+    "Subset results are not full-dataset benchmark results.",
+    "CPU latency depends on hardware and system load."
+  ]
+}
